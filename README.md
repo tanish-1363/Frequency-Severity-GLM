@@ -19,7 +19,7 @@ The model is built on the `dataCar` dataset from the `insuranceData` R package. 
 | `agecat` | Driver Age Bracket | Categorical factor from 1 (Youngest/Highest Risk) to 6 (Oldest). |
 | `area` | Geographic Density | Categorical factor (A through F) representing geographic underwriting zones. |
 
-## 🛠️ Tech Stack & Libraries
+## Tech Stack & Libraries
 * **Language:** R
 * **Core Libraries:** `insuranceData` (Portfolio Dataset)
 * **Data Wrangling:** `dplyr`
