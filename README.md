@@ -1,4 +1,4 @@
-# Actuarial Pricing Engine: Frequency-Severity GLM
+# Frequency-Severity GLM
 
 ## Project Overview
 This project is an institutional-grade Property & Casualty (P&C) commercial auto pricing tariff built in R. It mathematically segregates driver risk and generates a production-ready premium by modeling historical claim frequency and severity. The final model is validated through decile risk-pooling and calibrated to ensure the expected portfolio cost perfectly matches actual historical losses.
