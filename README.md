@@ -1,9 +1,9 @@
-# 📊 Actuarial Pricing Engine: Frequency-Severity GLM
+# Actuarial Pricing Engine: Frequency-Severity GLM
 
-## 📌 Project Overview
+## Project Overview
 This project is an institutional-grade Property & Casualty (P&C) commercial auto pricing tariff built in R. It mathematically segregates driver risk and generates a production-ready premium by modeling historical claim frequency and severity. The final model is validated through decile risk-pooling and calibrated to ensure the expected portfolio cost perfectly matches actual historical losses.
 
-## 🗄️ Data Provenance & Dictionary
+## Data Provenance & Dictionary
 The model is built on the `dataCar` dataset from the `insuranceData` R package. It contains a portfolio of **67,856 one-year commercial auto insurance policies** underwritten in 2004 and 2005. Of the total portfolio, exactly 4,624 policies (6.8%) incurred at least one claim, creating a highly imbalanced, real-world actuarial modeling environment.
 
 ### Actuarial Data Dictionary
@@ -26,7 +26,7 @@ The model is built on the `dataCar` dataset from the `insuranceData` R package. 
 * **Visualization:** `ggplot2`
 * **Modeling:** Generalized Linear Models (GLMs)
 
-## 🧠 Actuarial Methodology
+## Actuarial Methodology
 To ensure regulatory compliance and strict actuarial integrity, this codebase utilizes a dual-engine architecture, separating claim frequency from claim severity before synthesizing the final Pure Premium. 
 
 ### 1. Data Engineering & Baseline Profiling
@@ -56,7 +56,7 @@ The second engine predicts **how much** the mechanic bill will cost when a crash
 
 | Variable | Raw Estimate | Multiplier | Statistical Significance | Business Interpretation |
 | :--- | :---: | :---: | :---: | :--- |
-| **Intercept (Base)** | 7.353 | $1562.42 | `< 2e-16 ***` | The baseline driver's average crash costs $1,562. |
+| **Intercept (Base)** | 7.353 | 1562.42 | `< 2e-16 ***` | The baseline driver's average crash costs $1,562. |
 | **genderM (Male)** | 0.172 | 1.189 | `0.0011 **` | Male crashes are **18.9% more expensive** to repair. |
 | **agecat1 (Young)** | 0.276 | 1.319 | `0.0030 **` | Young driver crashes cause **31.9% more dollar damage**. |
 | **areaF (High Density)**| 0.334 | 1.397 | `0.0039 **` | Urban/dense area crashes cost **39.7% more**. |
@@ -67,7 +67,7 @@ The second engine predicts **how much** the mechanic bill will cost when a crash
 With both engines optimized, the models are applied across the entire 68,000-driver portfolio to calculate the individual risk cost.
 **The Pricing Equation:** `Expected Frequency × Expected Severity = Pure Premium`
 
-## 📈 Model Validation & Calibration
+## Model Validation & Calibration
 
 ### Out-of-Sample Validation (A/E Lift Chart)
 To test the engine's predictive validity without looking at individual mathematical variance, the portfolio is ranked by Pure Premium and chopped into 10 equal Risk Deciles.
