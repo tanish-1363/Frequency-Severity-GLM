@@ -4,8 +4,8 @@ This project is an institutional-grade Property & Casualty (P&C) commercial auto
 The model is built on the `dataCar` dataset from the `insuranceData` R package. It contains a portfolio of **67,856 one-year commercial auto insurance policies** underwritten in 2004 and 2005. Of the total portfolio, exactly 4,624 policies (6.8%) incurred at least one claim, creating a highly imbalanced, real-world actuarial modeling environment.
 
 ### Actuarial Data Dictionary
-| Variable | Actuarial Definition | Business Context in the GLM |
-| :--- | :--- | :--- |
+| Variable | Actuarial Definition |
+| :--- | :--- |
 | `numclaims` | Number of claims filed |
 | `claimcst0` | Total claim payout ($) | 
 | `exposure` | Policy duration (0.0 to 1.0) | 
