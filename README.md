@@ -33,35 +33,32 @@ To isolate the true mathematical risk of specific driver demographics, a control
 
 ### 2. Frequency Modeling (Poisson GLM)
 The first engine predicts **how often** a policyholder will crash. Because claim counts are discrete, non-negative integers, a Poisson distribution with a log-link function is deployed.
+**Equation:** `ln(Number of claims) = a_1 veh_body + a_2 veh_age + a_3 gender + a_4 area + a_5 agecat + ln(exposure)`
 
 **Mathematical Signal Extraction (P-Value Audit):**
 The algorithm successfully extracted highly significant predictive signals (P < 0.001) across multiple variables.
 
-| Variable | Raw Estimate | Multiplier | Statistical Significance | Business Interpretation |
+| Variable | Raw Estimate | Multiplier | Statistical Significance | Interpretation |
 | :--- | :---: | :---: | :---: | :--- |
 | **Intercept (Base)** | -1.754 | 0.173 | `< 2e-16 ***` | The baseline driver has a 17.3% chance of an annual claim. |
 | **veh_bodyCOUPE** | 0.428 | 1.535 | `0.0003 ***` | Coupes crash **53.5% more frequently** than Sedans. |
 | **agecat1 (Young)** | 0.229 | 1.259 | `1.38e-05 ***` | Young drivers crash **25.9% more frequently** than middle-aged. |
 | **agecat5 (Older)** | -0.243 | 0.784 | `6.69e-07 ***` | Older drivers crash **21.6% less frequently** than baseline. |
 
-**Model Fit:** The engine successfully converged in 6 iterations with an AIC of **34,822**.
-
 ### 3. Severity Modeling (Gamma GLM)
 The second engine predicts **how much** the mechanic bill will cost when a crash occurs. The dataset is filtered exclusively to policyholders with a claim greater than $0. Because repair costs are continuous, strictly positive, and highly right-skewed, a Gamma distribution with a log-link function is utilized.
 
 **Mathematical Signal Extraction (P-Value Audit):**
 
-| Variable | Raw Estimate | Multiplier | Statistical Significance | Business Interpretation |
+| Variable | Raw Estimate | Multiplier | Statistical Significance | Interpretation |
 | :--- | :---: | :---: | :---: | :--- |
 | **Intercept (Base)** | 7.353 | 1562.42 | `< 2e-16 ***` | The baseline driver's average crash costs $1,562. |
 | **genderM (Male)** | 0.172 | 1.189 | `0.0011 **` | Male crashes are **18.9% more expensive** to repair. |
 | **agecat1 (Young)** | 0.276 | 1.319 | `0.0030 **` | Young driver crashes cause **31.9% more dollar damage**. |
 | **areaF (High Density)**| 0.334 | 1.397 | `0.0039 **` | Urban/dense area crashes cost **39.7% more**. |
 
-**Model Fit:** The Gamma engine converged in 7 iterations with an AIC of **79,324** and a dispersion parameter of **2.93**.
-
 ### 4. Pure Premium Synthesis
-With both engines optimized, the models are applied across the entire 68,000-driver portfolio to calculate the individual risk cost.
+With both engines optimized, the models are applied across the entire portfolio to calculate the individual risk cost.
 **The Pricing Equation:** `Expected Frequency × Expected Severity = Pure Premium`
 
 ## Model Validation & Calibration
