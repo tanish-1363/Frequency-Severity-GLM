@@ -34,7 +34,7 @@ To isolate the true mathematical risk of specific driver demographics, a control
 ### 2. Frequency Modeling (Poisson GLM)
 The first engine predicts **how often** a policyholder will crash. Because claim counts are discrete, non-negative integers, a Poisson distribution with a log-link function is deployed.
 
-$$\ln(\text{Number of Claims}) = a_1(\text{Vehicle Body}) + a_2(\text{Vehicle Age}) + a_3(\text{Gender}) + a_4(\text{Area}) + a_5(\text{Age Category}) + \ln(\text{Exposure})$$
+**Equation:** $$\ln(\text{Number of Claims}) = a_1(\text{Vehicle Body}) + a_2(\text{Vehicle Age}) + a_3(\text{Gender}) + a_4(\text{Area}) + a_5(\text{Age Category}) + \ln(\text{Exposure})$$
 
 **Mathematical Signal Extraction (P-Value Audit):**
 The algorithm successfully extracted highly significant predictive signals (P < 0.001) across multiple variables.
