@@ -70,8 +70,6 @@ To test the engine's predictive validity without looking at individual mathemati
 
 <img width="1377" height="850" alt="image" src="https://github.com/user-attachments/assets/8dfc3d7f-0534-4c67-9356-ad9ebfd30cfb" />
 
-> **The Risk Pooling Reality:** The Lift Chart mathematically proves the model's ability to segregate risk. The Expected Cost (Dashed Blue Line) smoothly tracks the Actual Realized Cost (Solid Orange Line) across all 10 deciles. The model successfully identified and isolated the most dangerous, highest-cost drivers (Decile 10), predicting an exponential spike in costs that perfectly mirrored the real-world vault payouts.
-
 ### Portfolio Calibration (Mathematical Off-Balance)
 A raw statistical model is rarely ready for street deployment without final calibration. The total portfolio Actual-to-Expected (A/E) ratio must be calculated to measure systemic bias.
 
