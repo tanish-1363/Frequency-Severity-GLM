@@ -6,15 +6,15 @@ The model is built on the `dataCar` dataset from the `insuranceData` R package. 
 ### Actuarial Data Dictionary
 | Variable | Actuarial Definition | Business Context in the GLM |
 | :--- | :--- | :--- |
-| `numclaims` | Number of claims filed | **Target Variable:** Used to train the Poisson Frequency engine. |
-| `claimcst0` | Total claim payout ($) | **Target Variable:** Used to train the Gamma Severity engine (when > 0). |
-| `exposure` | Policy duration (0.0 to 1.0) | **Offset Factor:** Mathematically adjusts for partial-year policies to calculate annualized risk. |
-| `veh_value` | Vehicle Value | Measured in $10,000s; dictates the total insurable asset risk. |
-| `veh_body` | Vehicle Body Type | Categorical factor (e.g., SEDAN, COUPE, TRUCK) used for risk relativity. |
-| `veh_age` | Vehicle Age Bracket | Categorical factor from 1 (Brand New) to 4 (Oldest). |
-| `gender` | Driver Gender | Categorical factor (M/F) used for demographic risk segregation. |
-| `agecat` | Driver Age Bracket | Categorical factor from 1 (Youngest/Highest Risk) to 6 (Oldest). |
-| `area` | Geographic Density | Categorical factor (A through F) representing geographic underwriting zones. |
+| `numclaims` | Number of claims filed |
+| `claimcst0` | Total claim payout ($) | 
+| `exposure` | Policy duration (0.0 to 1.0) | 
+| `veh_value` | Vehicle Value (in $10,000s) |
+| `veh_body` | Vehicle Body Type (SEDAN, COUPE, TRUCK etc.) |
+| `veh_age` | Vehicle Age Bracket (1=Newest to 4=Oldest) |
+| `gender` | Driver Gender (M/F) |
+| `agecat` | Driver Age Bracket (1=Youngest to 6=Oldest) | 
+| `area` | Geographic Density (A to F) |
 
 ## Tech Stack & Libraries
 * **Language:** R
