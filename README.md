@@ -49,6 +49,8 @@ The algorithm successfully extracted highly significant predictive signals (P < 
 ### 3. Severity Modeling (Gamma GLM)
 The second engine predicts **how much** the mechanic bill will cost when a crash occurs. The dataset is filtered exclusively to policyholders with a claim greater than $0. Because repair costs are continuous, strictly positive, and highly right-skewed, a Gamma distribution with a log-link function is utilized.
 
+**Equation:** $$\ln(\text{Claim Amount}) = a_1(\text{Vehicle Body}) + a_2(\text{Vehicle Age}) + a_3(\text{Gender}) + a_4(\text{Area}) + a_5(\text{Age Category})$$
+
 **Mathematical Signal Extraction (P-Value Audit):**
 
 | Variable | Raw Estimate | Multiplier | Statistical Significance | Interpretation |
