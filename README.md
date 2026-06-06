@@ -60,6 +60,7 @@ The second engine predicts **how much** the mechanic bill will cost when a crash
 
 ### 4. Pure Premium Synthesis
 With both engines optimized, the models are applied across the entire portfolio to calculate the individual risk cost.
+
 **The Pricing Equation:** `Expected Frequency × Expected Severity = Pure Premium`
 
 ## Model Validation & Calibration
