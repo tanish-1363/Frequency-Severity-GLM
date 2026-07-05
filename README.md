@@ -1,10 +1,10 @@
-This project is an institutional-grade Property & Casualty (P&C) commercial auto pricing tariff built in R. It mathematically segregates driver risk and generates a production-ready premium by modeling historical claim frequency and severity. The final model is validated through decile risk-pooling and calibrated to ensure the expected portfolio cost perfectly matches actual historical losses.
+This project is a pricing model for Property & Casualty (P&C) auto insurance built in R. It moves beyond basic flat-rate pricing by segregating driver risk and calculates premium by modeling historical claim frequency and severity. The model is validated through decile risk-pooling and calibrated to ensure the expected portfolio cost matches actual historical losses.
 
-## Data Provenance & Dictionary
-The model is built on the `dataCar` dataset from the `insuranceData` R package. It contains a portfolio of **67,856 one-year commercial auto insurance policies** underwritten in 2004 and 2005. Of the total portfolio, exactly 4,624 policies (6.8%) incurred at least one claim, creating a highly imbalanced, real-world actuarial modeling environment.
+## Data 
+The model is built on the `dataCar` dataset from the `insuranceData` R package. It contains a portfolio of **67,856 one-year auto insurance policies** underwritten in 2004 and 2005. Of the total portfolio, exactly 4,624 policies (6.8%) incurred at least one claim, creating a real-world scenario.
 
-### Actuarial Data Dictionary
-| Variable | Actuarial Definition |
+### Data Dictionary
+| Variable | Meaning |
 | :--- | :--- |
 | `numclaims` | Number of claims filed |
 | `claimcst0` | Total claim payout ($) | 
@@ -16,15 +16,9 @@ The model is built on the `dataCar` dataset from the `insuranceData` R package. 
 | `agecat` | Driver Age Bracket (1=Youngest to 6=Oldest) | 
 | `area` | Geographic Density (A to F) |
 
-## Tech Stack & Libraries
 * **Language:** R
-* **Core Libraries:** `insuranceData` (Portfolio Dataset)
-* **Data Wrangling:** `dplyr`
-* **Visualization:** `ggplot2`
-* **Modeling:** Generalized Linear Models (GLMs)
-
-## Actuarial Methodology
-To ensure regulatory compliance and strict actuarial integrity, this codebase utilizes a dual-engine architecture, separating claim frequency from claim severity before synthesizing the final Pure Premium. 
+* **Libraries:** `insuranceData`, `dplyr`, `ggplot2`
+ 
 
 ### 1. Data Engineering & Baseline Profiling
 To isolate the true mathematical risk of specific driver demographics, a control group must be established as the foundational baseline (Multiplier = 1.000). All future price adjustments are calculated relative to this profile.
