@@ -21,17 +21,17 @@ The model is built on the `dataCar` dataset from the `insuranceData` R package. 
  
 
 ### 1. Data Engineering & Baseline Profiling
-To isolate the true mathematical risk of specific driver demographics, a control group must be established as the foundational baseline (Multiplier = 1.000). All future price adjustments are calculated relative to this profile.
-* **The Baseline Profile:** Middle-Aged (Age Category 3), driving a Sedan, located in Area C (Average density). 
-* **Exposure Adjustment:** To prevent data distortion, an `offset(log(exposure))` parameter is strictly enforced, ensuring the algorithm calculates an *annualized* claim rate.
+Before the algorithm can calculate who is a high-risk driver, it needs to mathematically define what an "average" driver looks like. This establishes a control group to anchor the rest of the pricing model. All future price adjustments are calculated relative to this profile.
+* **The Baseline Driver:** Middle-Aged (Age Category 3), driving a Sedan, located in Area C (Average density). 
+* **Exposure Adjustment:** Many policies in this dataset were written or canceled mid-year. If the model treats a 6-month policy exactly the same as a full 12-month policy, the risk calculations get completely distorted. A mathematical offset `offset(log(exposure))` parameter is applied ensuring the model calculates an *annualized* claim rate.
 
 ### 2. Frequency Modeling (Poisson GLM)
-The first engine predicts **how often** a policyholder will crash. Because claim counts are discrete, non-negative integers, a Poisson distribution with a log-link function is deployed.
+The first model predicts **how often** a policyholder will crash. Because claim counts are discrete, non-negative integers, a Poisson distribution with a log-link function is used.
 
 **Equation:** $$\ln(\text{Number of Claims}) = a_1(\text{Vehicle Body}) + a_2(\text{Vehicle Age}) + a_3(\text{Gender}) + a_4(\text{Area}) + a_5(\text{Age Category}) + \ln(\text{Exposure})$$
 
 **Mathematical Signal Extraction (P-Value Audit):**
-The algorithm successfully extracted highly significant predictive signals (P < 0.001) across multiple variables.
+The model successfully extracted highly significant predictive signals (P < 0.001) across multiple variables.
 
 | Variable | Raw Estimate | Multiplier | Statistical Significance | Interpretation |
 | :--- | :---: | :---: | :---: | :--- |
@@ -41,7 +41,7 @@ The algorithm successfully extracted highly significant predictive signals (P < 
 | **agecat5 (Older)** | -0.243 | 0.784 | `6.69e-07 ***` | Older drivers crash **21.6% less frequently** than baseline. |
 
 ### 3. Severity Modeling (Gamma GLM)
-The second engine predicts **how much** the mechanic bill will cost when a crash occurs. The dataset is filtered exclusively to policyholders with a claim greater than $0. Because repair costs are continuous, strictly positive, and highly right-skewed, a Gamma distribution with a log-link function is utilized.
+The second model predicts **how much** the mechanic bill will cost when a crash occurs. The dataset is filtered exclusively to policyholders with a claim greater than $0. Because repair costs are continuous, strictly positive, and highly right-skewed, a Gamma distribution with a log-link function is used.
 
 **Equation:** $$\ln(\text{Claim Amount}) = a_1(\text{Vehicle Body}) + a_2(\text{Vehicle Age}) + a_3(\text{Gender}) + a_4(\text{Area}) + a_5(\text{Age Category})$$
 
