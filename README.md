@@ -30,7 +30,7 @@ The first model predicts **how often** a policyholder will crash. Because claim 
 
 **Equation:** $$\ln(\text{Number of Claims}) = a_1(\text{Vehicle Body}) + a_2(\text{Vehicle Age}) + a_3(\text{Gender}) + a_4(\text{Area}) + a_5(\text{Age Category}) + \ln(\text{Exposure})$$
 
-**Mathematical Signal Extraction (P-Value Audit):**
+**Mathematical Signal Extraction:**
 The model successfully extracted highly significant predictive signals (P < 0.001) across multiple variables.
 
 | Variable | Raw Estimate | Multiplier | Statistical Significance | Interpretation |
@@ -45,7 +45,7 @@ The second model predicts **how much** the mechanic bill will cost when a crash 
 
 **Equation:** $$\ln(\text{Claim Amount}) = a_1(\text{Vehicle Body}) + a_2(\text{Vehicle Age}) + a_3(\text{Gender}) + a_4(\text{Area}) + a_5(\text{Age Category})$$
 
-**Mathematical Signal Extraction (P-Value Audit):**
+**Mathematical Signal Extraction:**
 
 | Variable | Raw Estimate | Multiplier | Statistical Significance | Interpretation |
 | :--- | :---: | :---: | :---: | :--- |
@@ -54,8 +54,8 @@ The second model predicts **how much** the mechanic bill will cost when a crash 
 | **agecat1 (Young)** | 0.276 | 1.319 | `0.0030 **` | Young driver crashes cause **31.9% more dollar damage**. |
 | **areaF (High Density)**| 0.334 | 1.397 | `0.0039 **` | Urban/dense area crashes cost **39.7% more**. |
 
-### 4. Pure Premium Synthesis
-With both engines optimized, the models are applied across the entire portfolio to calculate the individual risk cost.
+### 4. Pure Premium Calculation
+The final risk cost for any driver in the portfolio is calculated using 
 
 **The Pricing Equation:** `Expected Frequency × Expected Severity = Pure Premium`
 
