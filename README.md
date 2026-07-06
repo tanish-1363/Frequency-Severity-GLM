@@ -1,4 +1,4 @@
-This project is a pricing model for Property & Casualty (P&C) auto insurance built in R. It moves beyond basic flat-rate pricing by segregating driver risk and calculates premium by modeling historical claim frequency and severity. The model is validated through decile risk-pooling and calibrated to ensure the expected portfolio cost matches actual historical losses.
+This project is a pricing model for Property & Casualty (P&C) auto insurance built in R. It moves beyond basic flat-rate pricing by segregating driver risk and calculating premiums based on historical claim frequency and severity. Finally, the model is validated through decile risk-pooling and calibrated to ensure the expected portfolio cost matches actual historical losses.
 
 ## Data 
 The model is built on the `dataCar` dataset from the `insuranceData` R package. It contains a portfolio of **67,856 one-year auto insurance policies** underwritten in 2004 and 2005. Of the total portfolio, exactly 4,624 policies (6.8%) incurred at least one claim, creating a real-world scenario.
