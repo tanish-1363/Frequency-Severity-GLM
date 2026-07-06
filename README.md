@@ -61,14 +61,14 @@ The final risk cost for any driver in the portfolio is calculated using
 
 ## Model Validation & Calibration
 
-### Out-of-Sample Validation (A/E Lift Chart)
-To test the engine's predictive validity without looking at individual mathematical variance, the portfolio is ranked by Pure Premium and chopped into 10 equal Risk Deciles.
+### Out-of-Sample Validation (Actual/Expected Lift Chart)
+To test the model's predictive validity without looking at individual variance, the portfolio is ranked by Pure Premium and divided into 10 equal Risk Deciles.
 
 <img width="1377" height="850" alt="image" src="https://github.com/user-attachments/assets/8dfc3d7f-0534-4c67-9356-ad9ebfd30cfb" />
 
 ### Portfolio Calibration (Mathematical Off-Balance)
 A raw statistical model is rarely ready for street deployment without final calibration. The total portfolio Actual-to-Expected (A/E) ratio must be calculated to measure systemic bias.
 
-* **Total Portfolio A/E Ratio = 0.936293**
+* **Total Portfolio Actual/Expected Ratio = 0.936293**
 
-This ratio indicates that the raw GLM engine slightly over-predicted the total portfolio costs by roughly 6.4%. To finalize the production tariff, an **Off-Balance Factor of 0.936** is systematically applied across all premiums. This mathematically guarantees that the total money collected by the insurance carrier perfectly matches the total historical losses (Balanced A/E = 1.000), ensuring the product is aggressively priced and market-competitive.
+This ratio indicates that GLM slightly over-predicted the total portfolio costs by roughly 6.4%. To fix this, a **Calibration Factor of 0.936** is systematically applied across all premiums. This mathematically guarantees that the total money collected by the insurance carrier perfectly matches the total historical losses (Balanced A/E = 1.000), ensuring the product is market-competitive.
