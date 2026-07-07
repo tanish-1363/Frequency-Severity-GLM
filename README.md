@@ -66,6 +66,20 @@ To test the model's predictive validity without looking at individual variance, 
 
 <img width="1377" height="850" alt="image" src="https://github.com/user-attachments/assets/8dfc3d7f-0534-4c67-9356-ad9ebfd30cfb" />
 
+### Decile 8 Variance 
+| Decile | Actual_Cost | Expected_Cost | Number_Claims | Max_Claim | Sum_Max_10_Claim |
+| :--------: | :--------: | :--------: | :--------: | :--------: | :--------: |
+| 1 | 538922 | 607661 | 394 | 15157 | 108713 |
+| 2 | 674187 | 708316 | 413 | 23405 | 135776 |
+| 3 | 774699 | 787426 | 440 | 25594 | 162479 |
+| 4 | 837325 | 846670 | 463 | 47297 | 198712 |
+| 5 | 896014 | 899736 | 506 | 29275 | 167046 |
+| 6 | 923264 | 961524 | 528 | 21770 | 178187 |
+| 7 | 970352 | 1005367 | 507 | 29635 | 207107 |
+| 8 | 854548 | 1108527 | 523 | 19554 | 125247 |
+| 9 | 1250460 | 1293125 | 514 | 55922 | 285148 |
+| 10 | 1594834 | 1730034 | 649 | 46868 | 278004 |
+
 ### Portfolio Calibration (Mathematical Off-Balance)
 A raw statistical model is rarely ready for street deployment without final calibration. The total portfolio Actual-to-Expected (A/E) ratio must be calculated to measure systemic bias.
 
