@@ -67,6 +67,8 @@ To test the model's predictive validity without looking at individual variance, 
 <img width="1377" height="850" alt="image" src="https://github.com/user-attachments/assets/8dfc3d7f-0534-4c67-9356-ad9ebfd30cfb" />
 
 ### Decile 8 Variance 
+At Risk Decile 8, the actual portfolio cost drops sharply below the model’s expected curve. This may appear as a predictive failure, but upon examining the underlying claims data, it becomes clear that it was purely an anomaly in crash severity.
+
 | Decile | Actual_Cost | Expected_Cost | Number_Claims | Max_Claim | Sum_Max_10_Claim |
 | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: |
 | 1 | 538922 | 607661 | 394 | 15157 | 108713 |
@@ -79,6 +81,8 @@ To test the model's predictive validity without looking at individual variance, 
 | 8 | 854548 | 1108527 | 523 | 19554 | 125247 |
 | 9 | 1250460 | 1293125 | 514 | 55922 | 285148 |
 | 10 | 1594834 | 1730034 | 649 | 46868 | 278004 |
+
+The 8th decile group got into 523 accidents, which is actually more crashes than the surrounding deciles. The frequency model was 100% correct about their high-risk behavior. But by pure chance, none of those 523 crashes were severe. The absolute worst accident in this entire group only cost $19,553 (compared to a $55,000+ crash in the next bucket). Furthermore, the sum of their 10 worst claims was only $125,247 (the second lowest across all risk deciles).
 
 ### Portfolio Calibration (Mathematical Off-Balance)
 A raw statistical model is rarely ready for street deployment without final calibration. The total portfolio Actual-to-Expected (A/E) ratio must be calculated to measure systemic bias.
