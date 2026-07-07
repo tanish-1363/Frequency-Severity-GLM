@@ -65,9 +65,11 @@ lift_data <- dataCar %>%
   group_by(decile) %>%
   summarise(
     Actual_Cost = sum(claimcst0),        
-    Expected_Cost = sum(pure_premium*exposure)
+    Expected_Cost = sum(pure_premium*exposure),
+    Number_Claims = sum(numclaims),
+    Max_Claim = max(claimcst0),
+    Sum_Max_10_Claim = sum(head(sort(claimcst0,decreasing = T),10))
   )
-
 #plotting actual and expected lift for 10 groups 
 ggplot(lift_data, aes(x = factor(decile))) +
   geom_line(aes(y = Actual_Cost, group = 1, color = "Actual Cost (Reality)"), size = 1.2) +
